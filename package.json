@@ -1,0 +1,22 @@
+{
+  "name": "cra-redux-thunk-bootstrap-template",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "4.1.1",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-redux": "^5.0.7",
+    "react-scripts": "1.1.4",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0",
+    "serve": "^9.2.0"
+  },
+  "scripts": {
+    "dev": "react-scripts start",
+    "start": "serve --single ./build",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
