@@ -2,9 +2,9 @@ import { connect } from 'react-redux';
 
 import Main from './Main'
 
-import { firstAction } from '../actions/firstAction';
+import { addUserToLeaderboard } from '../actions/addUserToLeaderboard';
 
-import { secondAction } from '../actions/secondAction';
+
 
 
 const mapStateToProps = state => ({
@@ -12,8 +12,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  firstAction: () => dispatch(firstAction()),
-  secondAction: () => dispatch(secondAction())
+  addUserToLeaderboard: (user, score) => dispatch(addUserToLeaderboard(user, score))
 });
 
 const App = connect(mapStateToProps, mapDispatchToProps)(Main);

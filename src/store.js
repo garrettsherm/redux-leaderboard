@@ -7,9 +7,9 @@ import rootReducer from './reducers/rootReducer';
 
 // Initial State
 const initState = {
-	firstReducer: {
-		testing: "initial state test works"
-	}
+	leaderboard: [
+		{user: 'person1', score: 0}
+	]
 };
 
 // Create the redux store

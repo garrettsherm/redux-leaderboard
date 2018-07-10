@@ -1,23 +1,33 @@
 import React, { Component } from 'react';
 
-class Main extends Component {
+import Leaderboard from '../Leaderboard';
 
-  testState = (e) => {
-    console.log(this.props.firstReducer.testing);
-  }
+import AddPerson from '../AddPerson';
+
+class Main extends Component {
 
   render() {
     return (
       <div className="App">
         <header>
-          <h1>Welcome to React</h1>
+          <div className="container">
+            <div className="row">
+              <div className="col-md-12">
+                <h1 className="text-center">Leaderboard</h1>
+              </div>
+            </div>
+          </div>
         </header>
-        <pre>
-          {JSON.stringify(this.props)}
-        </pre>
-        <button onClick={this.props.firstAction}>Call firstAction Redux Action</button>
-        <button onClick={this.props.secondAction}>Call secondAction Redux Action</button>      
-        <button onClick={this.testState}>state test (check console)</button>
+        <div className="container">
+          <div className="row">
+            <div className="col-md-8">
+              <Leaderboard {...this.props} />
+            </div>
+            <div className="col-md-4">
+              <AddPerson {...this.props} />
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
