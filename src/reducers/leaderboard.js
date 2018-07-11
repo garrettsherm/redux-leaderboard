@@ -22,23 +22,31 @@ export function leaderboard (state = {}, action) {
 				{user: action.user, score: parseFloat(action.score, 10)}
 			]
 		case 'EDIT_SCORE':
-			let changeIndex = null;
+			let editIndex = null;
 			state.forEach((person, i) => {
 				if(person.user === action.user){
-					console.log('person exists');
-
-					changeIndex = i
+					editIndex = i
 				}
 			});
-			if(changeIndex >= 0){
-				console.log('changeIndex exists');
-				let testNewScore = state[changeIndex].score + parseFloat(action.changeScore, 10);
+			if(editIndex >= 0){
+				let testNewScore = state[editIndex].score + parseFloat(action.changeScore, 10);
 				if(!isNaN(testNewScore)){
-					state[changeIndex].score += parseFloat(action.changeScore, 10);
+					state[editIndex].score += parseFloat(action.changeScore, 10);
 				}
 			}
 			return [
 				...state
+			]
+		case 'REMOVE_PERSON':
+			let removeIndex = null;
+			state.forEach((person, i) => {
+				if(person.user === action.user){
+					removeIndex = i
+				}
+			});			
+			return [
+				...state.slice(0, removeIndex),
+				...state.slice(removeIndex + 1)
 			]
 		default:
 			return [...state]

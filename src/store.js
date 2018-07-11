@@ -8,7 +8,7 @@ import rootReducer from './reducers/rootReducer';
 // Initial State
 const initState = {
 	leaderboard: [
-		{user: 'person1', score: 0}
+		{user: 'person1', score: 0.0}
 	]
 };
 

@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import Main from './Main'
 
-import { addUserToLeaderboard, changeUserScore } from '../actions/addUserToLeaderboard';
+import { addUserToLeaderboard, changeUserScore, removeUserFromLeaderboard } from '../actions/leaderboardActions';
 
 
 
@@ -13,7 +13,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   addUserToLeaderboard: (user, score) => dispatch(addUserToLeaderboard(user, score)),
-  changeUserScore: (user, changeScore) => dispatch(changeUserScore(user, changeScore))
+  changeUserScore: (user, changeScore) => dispatch(changeUserScore(user, changeScore)),
+  removeUserFromLeaderboard: (user) => dispatch(removeUserFromLeaderboard(user))
 });
 
 const App = connect(mapStateToProps, mapDispatchToProps)(Main);

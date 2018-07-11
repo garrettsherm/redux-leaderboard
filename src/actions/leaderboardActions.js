@@ -15,4 +15,9 @@ export const changeUserScore = (user, changeScore) => (dispatch) => {
 	})
 }
 
-//export function addUserToLeaderboard
+export const removeUserFromLeaderboard = (user) => (dispatch) => {
+	dispatch({
+		type: 'REMOVE_PERSON',
+		user
+	})
+}

@@ -4,6 +4,8 @@ import Leaderboard from '../Leaderboard';
 
 import AddPerson from '../AddPerson';
 import EditScore from '../EditScore';
+import RemovePerson from '../RemovePerson';
+
 
 
 class Main extends Component {
@@ -28,6 +30,8 @@ class Main extends Component {
             <div className="col-md-4">
               <AddPerson {...this.props} />
               <EditScore {...this.props} />
+              <RemovePerson {...this.props} />
+
             </div>
           </div>
         </div>

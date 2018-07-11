@@ -23,7 +23,6 @@ class Leaderboard extends Component {
 						sortedLeaderboard.map((person, i) => <LeaderboardPerson key={i} person={person}/>)
 					}
 					</div>
-					{JSON.stringify(sortedLeaderboard)}
 			</div>
 		);
 	}
