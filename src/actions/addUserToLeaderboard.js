@@ -1,7 +1,7 @@
 //Simple first action
 export const addUserToLeaderboard = (user, score) => (dispatch) => {
 	dispatch({
-		type: 'FIRST_ACTION',
+		type: 'ADD_PERSON',
 		user: user,
 		score: score
 	})
