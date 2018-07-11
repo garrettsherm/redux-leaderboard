@@ -3,7 +3,7 @@ export const addUserToLeaderboard = (user, score) => (dispatch) => {
 	dispatch({
 		type: 'ADD_PERSON',
 		user: user,
-		score: score
+		score: parseInt(score, 10)
 	})
 }
 
