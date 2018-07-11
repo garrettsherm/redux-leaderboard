@@ -18,11 +18,12 @@ class Leaderboard extends Component {
 		return(
 			<div>
 				<h4>Leaderboard</h4>
-					<div>
+					<div key="sortedLeaderboard">
 					{
-						sortedLeaderboard.map(person => <LeaderboardPerson person={person}/>)
+						sortedLeaderboard.map((person, i) => <LeaderboardPerson key={i} person={person}/>)
 					}
 					</div>
+					{JSON.stringify(sortedLeaderboard)}
 			</div>
 		);
 	}

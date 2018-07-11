@@ -14,9 +14,15 @@ class AddPerson extends Component {
 		if(!this.state.userTaken){
 			this.props.addUserToLeaderboard(e.target.newUser.value, e.target.newUserScore.value);
 		}
+		e.target.reset();
+		this.setState({
+			userValue: '',
+			userTaken: false
+		});
 	}
 
 	checkDuplicateUser = (e) => {
+		console.log('checking for duplicate');
 		this.setState({userValue: e.target.value})
 
 		let userExists = false;
@@ -37,7 +43,7 @@ class AddPerson extends Component {
 					<label>New user name</label>
 					<input type="text" name="newUser" value={this.state.userValue} onChange={this.checkDuplicateUser}/>
 					<label>Starting score for new user</label>
-					<input type="number" name="newUserScore" />
+					<input type="text" name="newUserScore" />
 					<input type="submit" value="Add user" />
 				</form>
 				{this.state.userTaken && <p>user already exists</p>}

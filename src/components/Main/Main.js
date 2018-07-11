@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import Leaderboard from '../Leaderboard';
 
 import AddPerson from '../AddPerson';
+import EditScore from '../EditScore';
+
 
 class Main extends Component {
 
@@ -25,6 +27,7 @@ class Main extends Component {
             </div>
             <div className="col-md-4">
               <AddPerson {...this.props} />
+              <EditScore {...this.props} />
             </div>
           </div>
         </div>

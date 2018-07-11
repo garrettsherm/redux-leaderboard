@@ -7,4 +7,12 @@ export const addUserToLeaderboard = (user, score) => (dispatch) => {
 	})
 }
 
+export const changeUserScore = (user, changeScore) => (dispatch) => {
+	dispatch({
+		type: 'EDIT_SCORE',
+		user,
+		changeScore
+	})
+}
+
 //export function addUserToLeaderboard
