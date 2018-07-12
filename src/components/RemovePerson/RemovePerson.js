@@ -4,7 +4,17 @@ class RemovePerson extends Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault();
-		this.props.removeUserFromLeaderboard(e.target.userName.value);
+
+		let removeIndex = NaN;
+		this.props.leaderboard.forEach((person, i) => {
+			if(person.user === e.target.userName.value){
+				removeIndex = i
+				console.log(removeIndex);
+			}
+		});		
+		if(!isNaN(removeIndex)){
+			this.props.removeUserFromLeaderboard(e.target.userName.value, removeIndex);
+		}
 	}
 
 	render(){

@@ -23,15 +23,9 @@ export function leaderboard (state = {}, action) {
 				...state
 			]
 		case 'REMOVE_PERSON':
-			let removeIndex = null;
-			state.forEach((person, i) => {
-				if(person.user === action.user){
-					removeIndex = i
-				}
-			});			
 			return [
-				...state.slice(0, removeIndex),
-				...state.slice(removeIndex + 1)
+				...state.slice(0, action.index),
+				...state.slice(action.index + 1)
 			]
 		default:
 			return [...state]
