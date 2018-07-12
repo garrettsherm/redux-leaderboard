@@ -7,18 +7,7 @@ export function leaderboard (state = {}, action) {
 				{user: action.user, score: parseFloat(action.score, 10)}
 			]
 		case 'EDIT_SCORE':
-			let editIndex = null;
-			state.forEach((person, i) => {
-				if(person.user === action.user){
-					editIndex = i
-				}
-			});
-			if(editIndex >= 0){
-				let testNewScore = state[editIndex].score + parseFloat(action.changeScore, 10);
-				if(!isNaN(testNewScore)){
-					state[editIndex].score += parseFloat(action.changeScore, 10);
-				}
-			}
+			state[action.index].score = action.changeScore;
 			return [
 				...state
 			]

@@ -4,7 +4,7 @@ class AddPerson extends Component {
 
 
 	state = {
-		userTaken: false,
+		userTaken: true,
 		userValue: "",
 		scoreNaN: true
 	}
@@ -20,7 +20,8 @@ class AddPerson extends Component {
 		e.target.reset();
 		this.setState({
 			userValue: '',
-			userTaken: false
+			userTaken: true,
+			scoreNaN: true
 		});
 	}
 
@@ -31,7 +32,7 @@ class AddPerson extends Component {
 		let userExists = false;
 		this.props.leaderboard.map(user => {if(user.user === e.target.value){userExists = true;} return userExists;})
 
-		if(userExists){
+		if(userExists || e.target.value === ''){
 			this.setState({userTaken: true});
 		}else{
 			this.setState({userTaken: false});

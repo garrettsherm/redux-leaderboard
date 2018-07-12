@@ -13,7 +13,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   addUserToLeaderboard: (user, score) => dispatch(addUserToLeaderboard(user, score)),
-  changeUserScore: (user, changeScore, index) => dispatch(changeUserScore(user, changeScore)),
+  changeUserScore: (user, changeScore, index) => dispatch(changeUserScore(user, changeScore, index)),
   removeUserFromLeaderboard: (user, index) => dispatch(removeUserFromLeaderboard(user, index))
 });
 

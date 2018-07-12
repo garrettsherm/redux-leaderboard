@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 class EditScore extends Component {
 
 	state = {
-		addMinusScore: ''
+		addMinusScore: '',
+		scoreNaN: true
 	}
 
 	compareUserNames(person1, person2){
@@ -13,14 +14,32 @@ class EditScore extends Component {
 	}
 
 	changeAddMinusScore(e){
+		const testNumber = parseFloat(e.target.value, 10);
+		if(!isNaN(testNumber)){
+			this.setState({scoreNaN: false});
+		} else {
+			this.setState({scoreNaN: true});
+		}
 		this.setState({addMinusScore: e.target.value});
+
 	}
 
 	handleSubmit = (e) => {
 		e.preventDefault();
 		console.log(e.target.userName.value, e.target.changeScore.value);
-		this.props.changeUserScore(e.target.userName.value, e.target.changeScore.value);
-		this.setState({addMinusScore: ''});
+
+		let editIndex = NaN;
+		this.props.leaderboard.forEach((person, i) => {
+			if(person.user === e.target.userName.value){
+				editIndex = i
+				let testNewScore = this.props.leaderboard[editIndex].score + parseFloat(e.target.changeScore.value, 10);
+				if(!isNaN(testNewScore)){
+					this.props.changeUserScore(e.target.userName.value, testNewScore, editIndex);
+				}
+			}
+		});
+		this.setState({addMinusScore: '', scoreNaN: true});
+		e.target.reset();
 	}
 
 	render(){
@@ -39,6 +58,7 @@ class EditScore extends Component {
 					<input name="changeScore" value={this.state.addMinusScore} onChange={this.changeAddMinusScore.bind(this)} />
 					<input type="submit" value="Add/Minus from user score" />
 				</form>
+				{this.state.scoreNaN && <p>Add/minus from score is not a number</p>}
 			</div>
 		);
 	}
