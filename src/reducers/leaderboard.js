@@ -2,21 +2,6 @@
 export function leaderboard (state = {}, action) {
 	switch(action.type) {
 		case 'ADD_PERSON':
-			let personExists = false;
-
-			state.forEach(person => {if(person.user === action.user){personExists = true}});
-			if(personExists){
-				return [
-					...state
-				]
-			}
-			let testScore = parseFloat(action.score, 10);
-			if(isNaN(testScore)){
-				console.log('not a number!');
-				return [
-					...state
-				]
-			}
 			return [
 				...state,
 				{user: action.user, score: parseFloat(action.score, 10)}

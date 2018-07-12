@@ -5,14 +5,17 @@ class AddPerson extends Component {
 
 	state = {
 		userTaken: false,
-		userValue: ""
+		userValue: "",
+		scoreNaN: true
 	}
 
 	handleSubmit = (e) => {
 		e.preventDefault();
 
-		if(!this.state.userTaken){
-			this.props.addUserToLeaderboard(e.target.newUser.value, e.target.newUserScore.value);
+		let testScore = parseFloat(e.target.newUserScore.value, 10);
+
+		if(!this.state.userTaken && !isNaN(testScore)){
+			this.props.addUserToLeaderboard(e.target.newUser.value, testScore);
 		}
 		e.target.reset();
 		this.setState({
@@ -34,6 +37,14 @@ class AddPerson extends Component {
 			this.setState({userTaken: false});
 		}
 	}
+	checkNaNScore = (e) => {
+		let testScore = parseFloat(e.target.value, 10);
+		if(isNaN(testScore)){
+			this.setState({scoreNaN: true});
+		} else {
+			this.setState({scoreNaN: false});
+		}
+	}
 
 	render(){
 		return(
@@ -43,10 +54,11 @@ class AddPerson extends Component {
 					<label>New user name</label>
 					<input type="text" name="newUser" value={this.state.userValue} onChange={this.checkDuplicateUser}/>
 					<label>Starting score for new user</label>
-					<input type="text" name="newUserScore" />
+					<input type="text" name="newUserScore" onChange={this.checkNaNScore} />
 					<input type="submit" value="Add user" />
 				</form>
 				{this.state.userTaken && <p>user already exists</p>}
+				{this.state.scoreNaN && <p>Intial user score is not a number</p>}
 			</div>
 		);
 	}
