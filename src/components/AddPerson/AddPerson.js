@@ -52,14 +52,20 @@ class AddPerson extends Component {
 			<div>
 				<h4>Add Person Form</h4>
 				<form onSubmit={this.handleSubmit} >
-					<label>New user name</label>
-					<input type="text" name="newUser" value={this.state.userValue} onChange={this.checkDuplicateUser}/>
-					<label>Starting score for new user</label>
-					<input type="text" name="newUserScore" onChange={this.checkNaNScore} />
-					<input type="submit" value="Add user" />
+					<div className="form-group">
+						<label>New user name</label>
+						<input type="text" name="newUser" value={this.state.userValue} onChange={this.checkDuplicateUser} className="form-control" />
+					</div>
+					<div className="form-group">
+						<label>Starting score for new user</label>
+						<input type="text" name="newUserScore" onChange={this.checkNaNScore} className="form-control" />
+					</div>
+					<div className="form-group">
+						<button type="submit" className="btn btn-primary">Add User to leaderboard</button>
+					</div>
 				</form>
-				{this.state.userTaken && <p>user already exists</p>}
-				{this.state.scoreNaN && <p>Intial user score is not a number</p>}
+				{this.state.userTaken && <p className="text-danger">user already exists</p>}
+				{this.state.scoreNaN && <p className="text-danger">Intial user score is not a number</p>}
 			</div>
 		);
 	}

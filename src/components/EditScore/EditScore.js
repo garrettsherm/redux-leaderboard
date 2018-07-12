@@ -48,17 +48,25 @@ class EditScore extends Component {
 			<div>
 				<h4>Add/Minus from User Score</h4>
 				<form onSubmit={this.handleSubmit}>
-					<select name="userName">
-						{
-							sortedUserNames.map(user => 
-								<option key={user.user} value={user.user}>{user.user}</option>
-							)
-						}
-					</select>
-					<input name="changeScore" value={this.state.addMinusScore} onChange={this.changeAddMinusScore.bind(this)} />
-					<input type="submit" value="Add/Minus from user score" />
+					<div className="form-group">
+						<select name="userName" className="form-control">
+							{
+								sortedUserNames.map(user => 
+									<option key={user.user} value={user.user}>{user.user}</option>
+								)
+							}
+						</select>
+					</div>
+					<div className="form-group">
+						<input name="changeScore" value={this.state.addMinusScore} onChange={this.changeAddMinusScore.bind(this)} className="form-control"/>
+					</div>
+					<div className="form-group">
+						<button type="submit" className="btn btn-primary">Add/Minus from user score</button>
+					</div>
+
 				</form>
-				{this.state.scoreNaN && <p>Add/minus from score is not a number</p>}
+				{this.props.leaderboard.length === 0 && <p className="text-danger">No users to remove</p>}
+				{this.state.scoreNaN && <p className="text-danger">Add/minus from score is not a number</p>}
 			</div>
 		);
 	}

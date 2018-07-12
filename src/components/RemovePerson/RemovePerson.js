@@ -23,15 +23,20 @@ class RemovePerson extends Component {
 			<div>
 				<h4>Remove Person from Leaderboard</h4>
 				<form onSubmit={this.handleSubmit}>
-					<select name="userName">
-						{
-							sortedUserNames.map(user => 
-								<option key={user.user} value={user.user}>{user.user}</option>
-							)
-						}
-					</select>
-					<input type="submit" value="Remove Player From Leaderboard" />
+					<div className="form-group">
+						<select name="userName" className="form-control">
+							{
+								sortedUserNames.map(user => 
+									<option key={user.user} value={user.user}>{user.user}</option>
+								)
+							}
+						</select>
+					</div>
+					<div className="form-group">
+						<button type="submit" className="btn btn-primary">Remove Player From Leaderboard</button>
+					</div>
 				</form>
+				{this.props.leaderboard.length === 0 && <p className="text-danger">No users to remove</p>}
 			</div>
 		);
 	}
