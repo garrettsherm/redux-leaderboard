@@ -7,6 +7,7 @@ import { Provider } from 'react-redux';
 import store from './store';
 
 // js libraries
+import 'bootstrap';
 
 // Styles
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';

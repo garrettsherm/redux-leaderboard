@@ -17,7 +17,7 @@ class Leaderboard extends Component {
 		const sortedLeaderboard = this.props.leaderboard.sort(this.compareUsers);
 		return(
 			<div>
-				<h4>Leaderboard</h4>
+				<h1>Leaderboard</h1>
 					<div key="sortedLeaderboard">
 					{
 						sortedLeaderboard.map((person, i) => <LeaderboardPerson key={i} person={person}/>)
