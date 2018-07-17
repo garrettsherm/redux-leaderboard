@@ -2,6 +2,8 @@
 
 Simple example using React + Redux (thunk) & bootstrap to create a leaderboard application.
 
+See the application deployed to heroku here https://redux-leaderboard-garrettsherm.herokuapp.com.
+
 ## Installation
 
 Make sure you have the latest versions of node.js, npm, and yarn installed.
