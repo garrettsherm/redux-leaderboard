@@ -1,10 +1,6 @@
-## Create-react-app + Redux-thunk + bootstrap template
+## Leaderboard SPA built using React + Redux + Bootstrap
 
-Barebones template using create-react-app, redux-thunk, & bootstrap
-
-## Why?
-
-I wanted to spend less time setting up my environment and more time coding. 
+Simple example using React + Redux (thunk) & bootstrap to create a leaderboard application.
 
 ## Installation
 
@@ -18,13 +14,7 @@ Run 'npm run dev' to get up and running on localhost:3000.
 
 ## Build
 
-Run 'yarn build' to create an optimized build in './build' folder.
+Run 'npm run build' to create an optimized build in './build' folder.
 
 Run 'npm start' to serve application directly from build folder.
-
-## Inspired by 
-
-Article by Esther Falayi (https://medium.com/backticks-tildes/setting-up-a-redux-project-with-create-react-app-e363ab2329b8)
-
-Learn Redux course by Wes Bos (https://learnredux.com/)
 
