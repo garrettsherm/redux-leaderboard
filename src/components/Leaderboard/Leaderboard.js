@@ -18,11 +18,24 @@ class Leaderboard extends Component {
 		return(
 			<div>
 				<h1>Leaderboard</h1>
-					<div key="sortedLeaderboard">
-					{
-						sortedLeaderboard.map((person, i) => <LeaderboardPerson key={i} person={person}/>)
-					}
-					</div>
+					<table key="sortedLeaderboard" className="table">
+						<thead>
+							<th scope="col">#</th>
+							<th scope="col">Name</th>
+							<th scope="col">Score</th>
+						</thead>
+						<tbody>
+						{
+							sortedLeaderboard.map((person, i) => 
+								<tr>
+									<th scope="row">{i + 1}</th>
+									<td>{person.user}</td>
+									<td>{person.score}</td>
+								</tr>
+							)
+						}
+						</tbody>
+					</table>
 			</div>
 		);
 	}

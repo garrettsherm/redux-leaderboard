@@ -31,12 +31,12 @@ class RemovePerson extends Component {
 								)
 							}
 						</select>
+						{this.props.leaderboard.length === 0 && <p className="text-danger">No users to remove</p>}
 					</div>
 					<div className="form-group">
 						<button type="submit" className="btn btn-primary">Remove Player From Leaderboard</button>
 					</div>
 				</form>
-				{this.props.leaderboard.length === 0 && <p className="text-danger">No users to remove</p>}
 			</div>
 		);
 	}

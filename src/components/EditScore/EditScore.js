@@ -56,17 +56,17 @@ class EditScore extends Component {
 								)
 							}
 						</select>
+						{this.props.leaderboard.length === 0 && <p className="text-danger">No users to edit</p>}
+
 					</div>
 					<div className="form-group">
 						<input name="changeScore" value={this.state.addMinusScore} onChange={this.changeAddMinusScore.bind(this)} className="form-control"/>
+						{this.state.scoreNaN && <p className="text-danger">Add/minus from score is not a number</p>}
 					</div>
 					<div className="form-group">
 						<button type="submit" className="btn btn-primary">Add/Minus from user score</button>
 					</div>
-
 				</form>
-				{this.props.leaderboard.length === 0 && <p className="text-danger">No users to remove</p>}
-				{this.state.scoreNaN && <p className="text-danger">Add/minus from score is not a number</p>}
 			</div>
 		);
 	}

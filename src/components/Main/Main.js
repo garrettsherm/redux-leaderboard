@@ -24,7 +24,7 @@ class Main extends Component {
               <ul className="nav nav-tabs" id="leaderboard-nav">
                 <li className="nav-item" ><a className="nav-link active" data-toggle="tab" href="#addperson">Add Person</a></li>
                 <li className="nav-item"><a className="nav-link" data-toggle="tab" href="#editscore">Edit Score</a></li>
-                <li className="nav-item"><a className="nav-link" data-toggle="tab" href="#removeperson">Remove Score</a></li>
+                <li className="nav-item"><a className="nav-link" data-toggle="tab" href="#removeperson">Remove Person</a></li>
               </ul>
               <div className="tab-content">
                 <div id="addperson" className="tab-pane active in">
