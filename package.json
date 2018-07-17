@@ -21,6 +21,9 @@
     "start": "serve --single ./build",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "remove": "rm -r ./docs",
+    "copy": "cp -a ./build/. ./docs",
+    "docs": "npm run build && npm run remove && npm run copy"
   }
 }
